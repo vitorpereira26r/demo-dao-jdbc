@@ -3,7 +3,6 @@ import model.dao.SellerDao;
 import model.entities.Department;
 import model.entities.Seller;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -33,5 +32,11 @@ public class Main {
         Seller seller2 = new Seller(null, "Dave", "dave@gmail.com", new Date(), 2800.0, new Department(2, null));
         sellerDao.insert(seller2);
         System.out.println("Inserted! New Id = " + seller2.getId());
+
+        System.out.println("\n=== TEST 5 : seller update =====");
+        Seller seller3 = sellerDao.findById(1);
+        seller3.setName("Martha Wayne");
+        sellerDao.update(seller3);
+        System.out.println("Update completed!");
     }
 }
